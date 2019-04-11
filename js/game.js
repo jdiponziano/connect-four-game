@@ -5,26 +5,33 @@ class Game {
     this.ready = false;
   }
 
-  /**
-  * Returns active player
-  * @return  {Object} The active player object.
-  */
-  activePlayer() {
-    return players.find(player => player.isTurn);
+
+  /** 
+   * Returns active player.
+   * @return  {Object}    player - The active player.
+   */
+  get activePlayer() {
+    return this.players.find(player => player.isTurn);
   }
 
-  /**
-  * Creates two player objects
-  * @return  {Array}    An array of two Player objects.
-  */
+
+  /** 
+   * Creates two player objects
+   * @return  {array}    An array of two player objects.
+   */
   createPlayers() {
-    const players = [new Player('Josh', '#e15258', 1, true),
-                     new Player('Jess', '#e59a13', 2 )];
+    const players = [new Player('Player 1', 1, '#e15258', true),
+    new Player('Player 2', 2, '#e59a13')];
     return players;
   }
 
-  /**
-  * Gets game ready to play
-  */
-  startGame() {}
+
+  /** 
+   * Begins game. 
+   */
+  startGame() {
+    this.board.drawHTMLBoard();
+    this.activePlayer.activeToken.drawHTMLToken();
+    this.ready = true;
+  }
 }

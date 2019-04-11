@@ -22,6 +22,6 @@ class Token {
     gameBoard.appendChild(token);
     token.setAttribute('id', this.id);
     token.setAttribute('class', 'token');
-    token.style.backgroundColor=this.owner.color;
+    token.style.backgroundColor = this.owner.color;
   }
 }
